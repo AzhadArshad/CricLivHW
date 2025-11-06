@@ -17,13 +17,14 @@ const adminRoutes = require("./routes/adminRoutes.js");
 const app = express();
 app.use(cors());
 app.use(express.json());
-const PORT = process.env.PORT; // 8000 most probably
 
 //Now lets divert the upcoming requests to the routes
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/grounds", groundRoutes);
 app.use("/api/bookings", bookingRoutes);
+
+const PORT = process.env.PORT; // 8000 most probably
 
 app.listen(PORT, () => {
   console.log("\n");
