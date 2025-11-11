@@ -100,4 +100,32 @@ const update = async (req, res) => {
   }
 };
 
-module.exports = { getAll, create, getGround, update };
+const deleteGround = async (req, res) => {
+  const groundId = req.params.id;
+
+  try {
+    // Check if ground exists
+    const ground = await groundModel.getGround(groundId);
+    if (!ground) return res.status(404).json({ message: "Ground not found" });
+
+    // Delete from database
+    await groundModel.deleteGround(groundId);
+
+    // // Optionally: delete image file from public folder
+    // if (ground.image_filename) {
+    //   const fs = require("fs");
+    //   const path = require("path");
+    //   const filePath = path.join(
+    //     __dirname,
+    //     `../../frontend/public/grounds/${ground.image_filename}`
+    //   );
+    //   if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+    // }
+
+    res.json({ message: "Ground deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+module.exports = { getAll, create, getGround, update, deleteGround };

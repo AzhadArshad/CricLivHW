@@ -73,4 +73,15 @@ const updateGround = async (id, fields) => {
   return rows[0];
 };
 
-module.exports = { getAll, create, getGround, getGroundbyAdmin, updateGround };
+const deleteGround = async (id) => {
+  await pool.execute("DELETE FROM grounds WHERE ground_id = ?", [id]);
+};
+
+module.exports = {
+  getAll,
+  create,
+  getGround,
+  getGroundbyAdmin,
+  updateGround,
+  deleteGround,
+};

@@ -50,7 +50,16 @@ function AdminGrounds() {
           }}
         >
           {grounds.map((ground) => (
-            <GroundCardAdmin key={ground.ground_id} ground={ground} />
+            <GroundCardAdmin
+              key={ground.ground_id}
+              ground={ground}
+              onDeleted={(deletedId) => {
+                // remove the deleted ground from state
+                setGrounds((prev) =>
+                  prev.filter((g) => g.ground_id !== deletedId)
+                );
+              }}
+            />
           ))}
         </div>
       )}

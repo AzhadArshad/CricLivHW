@@ -1,9 +1,29 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import API from "../services/api";
 
-export default function GroundCardAdmin({ ground }) {
+export default function GroundCardAdmin({ ground, onDeleted }) {
   const imageUrl = ground.image_filename
     ? `/grounds/${ground.image_filename}`
     : "/grounds/default.jpg";
+
+  const handleDelete = async () => {
+    if (
+      !window.confirm(
+        `Are you sure you want to delete "${ground.ground_name}"?`
+      )
+    )
+      return;
+
+    try {
+      await API.delete(`/grounds/${ground.ground_id}`);
+      toast.success("Ground deleted successfully!");
+      if (onDeleted) onDeleted(ground.ground_id); // notify parent to remove card
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to delete ground. Try again later.");
+    }
+  };
 
   return (
     <div
@@ -49,22 +69,40 @@ export default function GroundCardAdmin({ ground }) {
           AED {ground.price_per_hour}/hr
         </p>
 
-        <Link
-          to={`/admin/${ground.ground_id}`}
-          style={{
-            display: "block",
-            background: "#ff0000ff",
-            color: "white",
-            textAlign: "center",
-            padding: "0.75rem",
-            borderRadius: "6px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            marginTop: "0.75rem",
-          }}
-        >
-          Edit
-        </Link>
+        <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.75rem" }}>
+          <Link
+            to={`/admin/${ground.ground_id}`}
+            style={{
+              flex: 1,
+              background: "#007bff",
+              color: "white",
+              textAlign: "center",
+              padding: "0.75rem",
+              borderRadius: "6px",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+          >
+            Edit
+          </Link>
+
+          <button
+            onClick={handleDelete}
+            style={{
+              flex: 1,
+              background: "#ff0000",
+              color: "white",
+              textAlign: "center",
+              padding: "0.75rem",
+              borderRadius: "6px",
+              border: "none",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

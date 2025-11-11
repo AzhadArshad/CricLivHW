@@ -15,6 +15,8 @@ router.post("/", authMw, roleMw("admin"), groundControl.create);
 
 router.put("/:id", authMw, roleMw("admin"), groundControl.update);
 
+router.delete("/:id", authMw, roleMw("admin"), groundControl.deleteGround);
+
 router.get("/:id", authMw, groundControl.getGround);
 
 module.exports = router;
