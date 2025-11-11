@@ -1,3 +1,4 @@
+//AdminGrounds.jsx
 import { useEffect, useState } from "react";
 import API from "../../services/api";
 import GroundCardAdmin from "../../components/GroundCardAdmin";
@@ -55,8 +56,9 @@ function AdminGrounds() {
               ground={ground}
               onDeleted={(deletedId) => {
                 // remove the deleted ground from state
-                setGrounds((prev) =>
-                  prev.filter((g) => g.ground_id !== deletedId)
+                setGrounds(
+                  (prev) => prev.filter((g) => g.ground_id !== deletedId),
+                  window.location.reload()
                 );
               }}
             />
