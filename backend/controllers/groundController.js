@@ -54,4 +54,50 @@ const getAll = async (req, res) => {
   }
 };
 
-module.exports = { getAll, create };
+const getGround = async (req, res) => {
+  try {
+    const groundId = req.params.id; // ✅ correct way
+    const ground = await groundModel.getGround(groundId);
+
+    if (!ground) {
+      return res.status(404).json({ message: "Ground not found" });
+    }
+
+    res.json(ground);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const update = async (req, res) => {
+  const groundId = req.params.id;
+  const { ground_name, location, description_ground, price_per_hour } =
+    req.body;
+
+  try {
+    // Fetch existing ground
+    const ground = await groundModel.getGround(groundId);
+    if (!ground) return res.status(404).json({ message: "Ground not found" });
+
+    // Partial update
+    const updatedFields = {
+      ground_name: ground_name || ground.ground_name,
+      location: location || ground.location,
+      description_ground: description_ground || ground.description_ground,
+      price_per_hour: price_per_hour || ground.price_per_hour,
+      image_filename: ground.image_filename, // keep existing image
+    };
+
+    const updatedGround = await groundModel.updateGround(
+      groundId,
+      updatedFields
+    );
+    res.json(updatedGround);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = { getAll, create, getGround, update };

@@ -30,14 +30,24 @@ const getMy = async (req, res) => {
 const cancel = async (req, res) => {
   const success = await bookingModel.cancel(req.params.id, req.user.user_id);
   if (!success)
-    return res
-      .status(404)
-      .json({
-        message: "Not found",
-        bookingId: req.params.id,
-        userId: req.user.user_id,
-      });
+    return res.status(404).json({
+      message: "Not found",
+      bookingId: req.params.id,
+      userId: req.user.user_id,
+    });
   res.json({ message: "Cancelled" });
 };
 
-module.exports = { create, getMy, cancel };
+// cancelling a booking
+const confirm = async (req, res) => {
+  const success = await bookingModel.confirm(req.params.id, req.user.user_id);
+  if (!success)
+    return res.status(404).json({
+      message: "Not found",
+      bookingId: req.params.id,
+      userId: req.user.user_id,
+    });
+  res.json({ message: "Confirmed" });
+};
+
+module.exports = { create, getMy, cancel, confirm };

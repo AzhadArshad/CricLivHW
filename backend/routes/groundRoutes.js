@@ -13,4 +13,8 @@ router.get("/", groundControl.getAll);
 
 router.post("/", authMw, roleMw("admin"), groundControl.create);
 
+router.put("/:id", authMw, roleMw("admin"), groundControl.update);
+
+router.get("/:id", authMw, groundControl.getGround);
+
 module.exports = router;

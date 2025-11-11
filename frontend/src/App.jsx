@@ -14,12 +14,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import GroundList from "./pages/GroundList";
 import BookingPage from "./pages/BookingPage";
+import AdminEdit from "./pages/AdminEdit";
 
 // Dashboard pages
 import UserDashboard from "./pages/dashboard/UserDashboard";
 import AdminDashboard from "./pages/dashboard/AdminDashboard";
-import AdminGrounds from "./pages/dashboard/AdminGrounds";
-import AdminBookings from "./pages/dashboard/AdminBookings";
+import AdminGroundForm from "./pages/dashboard/AdminGroundForm";
+import AdminBookings from "./pages/dashboard/AdminGrounds";
 import UserBookings from "./pages/dashboard/UserBookings";
 
 // Components
@@ -76,7 +77,7 @@ export default function App() {
 
           {/* USER PROTECTED */}
           <Route
-            path="/book"
+            path="/book/:ground_id"
             element={
               <Protected>
                 <BookingPage />
@@ -95,7 +96,7 @@ export default function App() {
             path="/my-bookings"
             element={
               <Protected>
-                <UserBookings />
+                <UserDashboard />
               </Protected>
             }
           />
@@ -110,10 +111,18 @@ export default function App() {
             }
           />
           <Route
-            path="/admin/grounds"
+            path="/admin/:ground_id"
             element={
               <Protected adminOnly>
-                <AdminGrounds />
+                <AdminEdit />
+              </Protected>
+            }
+          />
+          <Route
+            path="/admin/groundsForm"
+            element={
+              <Protected adminOnly>
+                <AdminGroundForm />
               </Protected>
             }
           />

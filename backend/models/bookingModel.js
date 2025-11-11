@@ -40,6 +40,15 @@ const cancel = async (booking_id, user_id) => {
   return res.affectedRows > 0;
 };
 
+// a user confirm a booking
+const confirm = async (booking_id, user_id) => {
+  const [res] = await pool.execute(
+    'UPDATE bookings SET status = "confirmed" WHERE booking_id = ? AND user_id = ?',
+    [booking_id, user_id]
+  );
+  return res.affectedRows > 0;
+};
+
 // to check availability
 const isSlotTaken = async (ground_id, booking_date, booking_time) => {
   const [rows] = await pool.execute(
@@ -51,4 +60,28 @@ const isSlotTaken = async (ground_id, booking_date, booking_time) => {
   return rows.length > 0;
 };
 
-module.exports = { create, getByUser, cancel, isSlotTaken };
+// get bookings for an admin (by their grounds)
+const getByAdmin = async (admin_id) => {
+  const [rows] = await pool.execute(
+    `SELECT 
+       b.*, 
+       g.ground_name, 
+       u.username AS booked_by
+     FROM bookings b
+     JOIN grounds g ON b.ground_id = g.ground_id
+     JOIN users u ON b.user_id = u.user_id
+     WHERE g.admin_id = ?
+     ORDER BY b.booking_date DESC, b.booking_time`,
+    [admin_id]
+  );
+  return rows;
+};
+
+module.exports = {
+  create,
+  getByUser,
+  cancel,
+  isSlotTaken,
+  confirm,
+  getByAdmin,
+};

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/authService"; // API call to login
-import { startLogin } from "../utils/auth"; // Save token + user
+import { startLogin, logout } from "../utils/auth"; // Save token + user
 
 export default function Login() {
   // FORM STATE: holds email and password
