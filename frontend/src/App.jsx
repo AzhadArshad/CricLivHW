@@ -24,7 +24,7 @@ import AdminBookings from "./pages/dashboard/AdminGrounds";
 import UserBookings from "./pages/dashboard/UserBookings";
 
 // Components
-import Navbar from "./components/Navbar";
+import Navbarf from "./components/Navbarf";
 import Footer from "./components/Footer";
 
 // Auth utils
@@ -63,7 +63,7 @@ const RedirectAfterLogin = () => {
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbarf />
       <div className="container" style={{ minHeight: "80vh", padding: "1rem" }}>
         <Routes>
           {/* PUBLIC */}
