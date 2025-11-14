@@ -42,34 +42,21 @@ export default function Home() {
           Manage your bookings or explore new grounds.
         </p>
 
-        <div className="btn-group d-flex justfity-content-center gap-3 flex-wrap">
-          <Link to="/grounds" className="btn btn-blue">
+        <div className="btn-group d-flex justify-content-center gap-3 flex-wrap">
+          <Link to="/grounds" className="btn btn-maroon btn-lg px-4 py-3">
             Browse Grounds
           </Link>
 
-          <Link to="/my-bookings" className="btn btn-cyan">
+          <Link to="/my-bookings" className="btn btn-red btn-lg px-4 py-3">
             My Bookings
           </Link>
 
           {user.user_role === "admin" && (
-            <Link to="/admin" className="btn btn-pink">
+            <Link to="/admin" className="btn btn-green btn-lg px-4 py-3">
               Admin Panel
             </Link>
           )}
         </div>
-
-        {/* DUBAI TIME */}
-        <p className="mt-5 text-muted small">
-          Current time in Dubai:{" "}
-          {new Date().toLocaleString("en-AE", {
-            timeZone: "Asia/Dubai",
-            hour: "2-digit",
-            minute: "2-digit",
-            day: "numeric",
-            month: "short",
-            year: "numeric",
-          })}
-        </p>
       </section>
     </>
   );

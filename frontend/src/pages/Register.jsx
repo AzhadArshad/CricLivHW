@@ -43,7 +43,7 @@ export default function Register() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "2rem auto" }}>
+    <div style={{ maxWidth: "400px", margin: "20rem auto" }}>
       <h2>Register</h2>
 
       {/* SHOW ERROR IF ANY */}
@@ -62,7 +62,7 @@ export default function Register() {
           style={{
             display: "block",
             width: "100%",
-            margin: "0.5rem 0",
+            margin: "1rem 0",
             padding: "0.5rem",
           }}
         />
@@ -78,7 +78,7 @@ export default function Register() {
           style={{
             display: "block",
             width: "100%",
-            margin: "0.5rem 0",
+            margin: "1rem 0",
             padding: "0.5rem",
           }}
         />
@@ -103,13 +103,13 @@ export default function Register() {
         <button
           type="submit"
           style={{
-            background: "#007bff",
+            background: "#5a9f68",
             color: "white",
             padding: "0.5rem 1rem",
             border: "none",
             cursor: "pointer",
             width: "100%",
-            marginTop: "1rem",
+            marginTop: "2rem",
           }}
         >
           Register

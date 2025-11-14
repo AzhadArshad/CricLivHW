@@ -32,7 +32,14 @@ export default function UserDashboard() {
   }
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "900px", margin: "auto" }}>
+    <div
+      style={{
+        padding: "2rem",
+        maxWidth: "900px",
+        margin: "auto",
+        marginTop: "5rem",
+      }}
+    >
       <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Dashboard</h1>
       <div
         style={{

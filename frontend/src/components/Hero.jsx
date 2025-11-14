@@ -23,6 +23,7 @@ export default function Hero() {
         backgroundRepeat: "no-repeat",
         margin: 0,
         padding: 0,
+        marginTop: "50px",
       }}
     >
       {/* DARK OVERLAY */}

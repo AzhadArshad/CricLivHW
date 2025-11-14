@@ -15,6 +15,8 @@ import Register from "./pages/Register";
 import GroundList from "./pages/GroundList";
 import BookingPage from "./pages/BookingPage";
 import AdminEdit from "./pages/AdminEdit";
+import ContactUs from "./pages/ContactUs";
+import AboutUs from "./pages/AboutUs";
 
 // Dashboard pages
 import UserDashboard from "./pages/dashboard/UserDashboard";
@@ -134,6 +136,10 @@ export default function App() {
               </Protected>
             }
           />
+
+          <Route path="/contact-us" element={<ContactUs />} />
+
+          <Route path="/about-us" element={<AboutUs />} />
 
           {/* CATCH ALL */}
           <Route path="*" element={<Navigate to="/" />} />

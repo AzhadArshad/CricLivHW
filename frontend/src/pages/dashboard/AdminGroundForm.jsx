@@ -116,7 +116,7 @@ export default function AdminGroundForm() {
             style={{ display: "block", margin: "0 auto" }}
           />
           {form.ground_photo && (
-            <p style={{ margin: "0.5rem 0 0", color: "#28a745" }}>
+            <p style={{ margin: "0.5rem 0 0", color: "#5a9f68" }}>
               Selected: {form.ground_photo.name}
             </p>
           )}
@@ -149,7 +149,7 @@ const inputStyle = {
 };
 
 const btnStyle = {
-  background: "#28a745",
+  background: "#5a9f68",
   color: "white",
   padding: "0.75rem",
   border: "none",

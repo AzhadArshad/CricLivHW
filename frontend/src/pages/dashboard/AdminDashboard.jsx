@@ -52,7 +52,14 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "1000px", margin: "auto" }}>
+    <div
+      style={{
+        padding: "2rem",
+        maxWidth: "1000px",
+        margin: "auto",
+        marginTop: "5rem",
+      }}
+    >
       <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>
         Admin Dashboard
       </h1>
@@ -103,7 +110,7 @@ export default function AdminDashboard() {
         <button
           onClick={() => navigate("/admin/groundsForm")}
           style={{
-            background: "#007bff",
+            background: "#5a9f68",
             color: "white",
             padding: "0.5rem 1rem",
             borderRadius: "6px",

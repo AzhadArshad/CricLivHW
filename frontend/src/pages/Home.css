@@ -3,12 +3,12 @@
 body { background:#000; color:#fff; }
 
 .welcome { background:#000; font-family:"Poppins",sans-serif; }
-.text-pink { color:#ff1493; }
+.text-pink { color:#5a9f68; }
 .text-lightgray { color:#ccc; }
 
-.btn-blue   { background:#007bff; color:#fff; }
-.btn-cyan   { background:#00bfff; color:#000; }
-.btn-pink   { background:#ff1493; color:#000; }
+.btn-maroon   { background:#550d0e; color:#000; }
+.btn-red   { background:#a13842; color:#000; }
+.btn-green   { background:#5a9f68; color:#000; }
 
 .btn {
   padding:.75rem 1.5rem;
@@ -19,7 +19,26 @@ body { background:#000; color:#fff; }
   transition:all .3s;
   min-width:150px;
 }
-.btn:hover {
+.btn-green:hover {
   transform:translateY(-3px);
+  color: #5a9f68;
+  outline: 3px solid #5a9f68;
   box-shadow:0 6px 15px rgba(0,0,0,.4);
+  transition: all 0.3s ease;
+}
+
+.btn-maroon:hover {
+  transform:translateY(-3px);
+  outline: 3px solid #550d0e;
+  color: #550d0e;
+  box-shadow:0 6px 15px rgba(0,0,0,.4);
+  transition: all 0.3s ease;
+}
+
+.btn-red:hover {
+  transform:translateY(-3px);
+  outline: 3px solid #a13842;
+  color: #a13842;
+  box-shadow:0 6px 15px rgba(0,0,0,.4);
+  transition: all 0.3s ease;
 }

@@ -1,13 +1,66 @@
-.hero { font-family: "Poppins", sans-serif; }
+.hero { 
+  font-family: "Poppins", sans-serif; 
+  width: 100vw !important;
+  margin-right: calc(-50vw + 50%) !important;
+  margin-left: calc(-50vw + 50%) !important;
+  padding: 0 !important;
+}
 
 .btn-pink {
-  background: #ff1493;
-  color: #000;
-  border: none;
-  transition: all .3s ease;
+  background: #5a9f68 !important;
+  color: #000 !important;
+  border: none !important;
+  transition: all .3s ease !important;
+  box-shadow: 0 4px 15px rgba(14, 127, 48, 0.3)
 }
 .btn-pink:hover {
-  background: #ff4da6;
+  background: #000 !important;
+  color: #5a9f68 !important;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255,20,147,.35);
+  outline: 3px solid #5a9f68 !important;
+  outline-offset: 2px;
+  box-shadow: 0 4px 15px rgba(14, 127, 48, 0.6)
+}
+
+/* src/components/Hero.css or src/components/GroundCard.css */
+.btn-book {
+  background: #a13842 !important;
+  color: #000 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(87, 14, 20, 0.6);
+  font-weight: 600;
+}
+
+.btn-book:hover {
+  background: #000 !important;
+  color: #a13842 !important;
+  transform: translateY(-4px);
+  outline: 3px solid #d46a6a !important;
+  outline-offset: 2px;
+  box-shadow: 0 10px 25px rgba(87, 14, 20, 0.8) !important;
+}
+
+.btn-book:focus-visible {
+  outline: 3px solid #d46a6a !important;
+  outline-offset: 2px;
+}
+
+/* Green Card + Hover */
+.bg-green-dark {
+  background: linear-gradient(135deg, #5a9f68 0%, #1a4d2e 100%) !important;
+  outline: #000;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 15px 35px rgba(90, 159, 104, 0.5) !important;
+}
+
+.shadow-xl {
+  box-shadow: 0 15px 35px rgba(90, 159, 104, 0.5) !important;
 }

@@ -79,7 +79,14 @@ export default function BookingPage() {
   const imageUrl = `/grounds/${ground.image_filename || "default.jpg"}`;
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "800px", margin: "auto" }}>
+    <div
+      style={{
+        padding: "2rem",
+        maxWidth: "800px",
+        margin: "auto",
+        marginTop: "5rem",
+      }}
+    >
       <img
         src={imageUrl}
         alt={ground.ground_name}
@@ -92,13 +99,13 @@ export default function BookingPage() {
         onError={(e) => (e.target.src = "/grounds/default.jpg")}
       />
 
-      <h1 style={{ marginTop: "1.5rem", fontSize: "2rem" }}>
+      <h1 style={{ marginTop: "1.5rem", fontSize: "2rem", color: "#fff7ec" }}>
         {ground.ground_name}
       </h1>
-      <p style={{ color: "#666", marginBottom: "0.5rem" }}>
+      <p style={{ color: "#5a9f68", marginBottom: "0.5rem" }}>
         📍 {ground.location}
       </p>
-      <p style={{ margin: "0.5rem 0", color: "#333" }}>
+      <p style={{ margin: "0.5rem 0", color: "#fff7ec" }}>
         {ground.description_ground}
       </p>
       <p
@@ -113,15 +120,7 @@ export default function BookingPage() {
       </p>
 
       <button
-        style={{
-          background: "#007bff",
-          color: "white",
-          padding: "0.8rem 1.2rem",
-          border: "none",
-          borderRadius: "6px",
-          cursor: "pointer",
-          marginTop: "1rem",
-        }}
+        className="btn btn-rounded btn-pink"
         onClick={() => setShowForm(true)}
       >
         Book Now
@@ -153,11 +152,23 @@ export default function BookingPage() {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 style={{ marginBottom: "1rem", textAlign: "center" }}>
+            <h2
+              style={{
+                color: "#000",
+                marginBottom: "1rem",
+                textAlign: "center",
+              }}
+            >
               Book {ground.ground_name}
             </h2>
             <form onSubmit={handleBooking}>
-              <label style={{ display: "block", marginBottom: "0.5rem" }}>
+              <label
+                style={{
+                  color: "#000",
+                  display: "block",
+                  marginBottom: "0.5rem",
+                }}
+              >
                 Date:
               </label>
               <input
@@ -173,7 +184,13 @@ export default function BookingPage() {
                 }}
               />
 
-              <label style={{ display: "block", marginBottom: "0.5rem" }}>
+              <label
+                style={{
+                  color: "#000",
+                  display: "block",
+                  marginBottom: "0.5rem",
+                }}
+              >
                 Time:
               </label>
               <select
@@ -201,7 +218,7 @@ export default function BookingPage() {
               <button
                 type="submit"
                 style={{
-                  background: "#28a745",
+                  background: "#5a9f68",
                   color: "white",
                   width: "100%",
                   padding: "0.8rem",

@@ -1,4 +1,8 @@
 /* Dark Posefiy navbar */
+.navbar {
+  margin-bottom: 20rem;
+}
+
 .navbar-dark.bg-dark-custom {
   background: rgba(0,0,0,.85) !important;
   backdrop-filter: blur(12px);
@@ -6,7 +10,7 @@
   font-family: "Poppins", sans-serif;
 }
 .logo {
-  color: #ff1493;
+  color: #5a9f68;
   font-weight: 700;
   font-size: 1.6rem;
 }
@@ -14,12 +18,12 @@
   color: #ddd !important;
   transition: color .2s;
 }
-.nav-link:hover { color: #ff1493 !important; }
+.nav-link:hover { color: #5a9f68 !important; }
 
 /* Pink buttons */
 .btn-login,
 .btn-logout {
-  background: #ff1493;
+  background: #5a9f68;
   color: #000;
   border: none;
   border-radius: 50px;
@@ -29,7 +33,9 @@
 }
 .btn-login:hover,
 .btn-logout:hover {
-  background: #ff4da6;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255,20,147,.4);
+  background: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(12, 72, 37, 0.4);
+  color: #5a9f68 !important;
+  outline: 3px solid #5a9f68 !important;
 }

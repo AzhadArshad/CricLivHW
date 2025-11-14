@@ -55,7 +55,7 @@ export default function Login() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "2rem auto" }}>
+    <div style={{ maxWidth: "400px", margin: "20rem auto" }}>
       <h2>Login</h2>
 
       {/* SHOW ERROR IF ANY */}
@@ -74,7 +74,7 @@ export default function Login() {
           style={{
             display: "block",
             width: "100%",
-            margin: "0.5rem 0",
+            margin: "1rem 0",
             padding: "0.5rem",
           }}
         />
@@ -99,13 +99,13 @@ export default function Login() {
         <button
           type="submit"
           style={{
-            background: "#28a745",
+            background: "#5a9f68",
             color: "white",
             padding: "0.5rem 1rem",
             border: "none",
             cursor: "pointer",
             width: "100%",
-            marginTop: "1rem",
+            marginTop: "2rem",
           }}
         >
           Login

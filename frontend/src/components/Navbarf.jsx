@@ -49,6 +49,9 @@ export default function Navbar() {
     logout(); // Clears localStorage + redirects
   };
 
+  const showBecomeAdmin =
+    user && user.user_role !== "admin" && user.user_role === "user";
+
   return (
     <nav
       className="navbar navbar-expand-lg bg-dark-custom fixed-top fs-5"
@@ -77,10 +80,17 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <Link to="/about-us" className="nav-link">
                 About Us
               </Link>
             </li>
+            {showBecomeAdmin && (
+              <li className="nav-item">
+                <Link to="/contact-us" className="nav-link text-warning">
+                  Contact Us
+                </Link>
+              </li>
+            )}
           </ul>
 
           <div className="d-flex align-items-center gap-3">

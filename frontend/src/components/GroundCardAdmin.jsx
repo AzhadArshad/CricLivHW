@@ -62,7 +62,7 @@ export default function GroundCardAdmin({ ground, onDeleted }) {
           style={{
             margin: "0.5rem 0",
             fontWeight: "bold",
-            color: "#28a745",
+            color: "#5a9f68",
             fontSize: "1.1rem",
           }}
         >
@@ -74,7 +74,7 @@ export default function GroundCardAdmin({ ground, onDeleted }) {
             to={`/admin/${ground.ground_id}`}
             style={{
               flex: 1,
-              background: "#007bff",
+              background: "#5a9f68",
               color: "white",
               textAlign: "center",
               padding: "0.75rem",
