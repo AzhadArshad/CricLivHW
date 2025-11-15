@@ -25,7 +25,7 @@ const teamMembers = [
   {
     name: "Zunayesha",
     role: "Database Administrator",
-    image: "/images/aliza.jpeg",
+    image: "/images/zun.jpeg",
   },
 ];
 
@@ -80,7 +80,11 @@ export default function AboutUs() {
                   src={member.image}
                   alt={member.name}
                   className="card-img-top"
-                  style={{ height: "200px", objectFit: "cover" }}
+                  style={{
+                    height: "200px",
+                    width: "200px",
+                    objectFit: "cover",
+                  }}
                   onError={(e) => (e.target.src = "/team/default.jpg")}
                 />
                 <div
