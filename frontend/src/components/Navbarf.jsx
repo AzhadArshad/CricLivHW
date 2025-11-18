@@ -1,10 +1,12 @@
 // src/components/Navbar.jsx
-// PURPOSE: Show brand, user info, logout button
+
+// PURPOSE: Display site navigation, branding, user info, login/logout
 // FEATURES:
-//   - Real-time user state with useState + useEffect
-//   - Auto-updates when user logs in/out (from other tabs)
-//   - Correct Link + button structure
-//   - No invalid CSS (textcolor → color)
+//   - Tracks logged-in user using state + effects
+//   - Updates automatically when user logs in/out (even from another tab)
+//   - Uses correct structure for Bootstrap navbar
+//   - Renders conditional items based on user role
+//   - Clean, responsive, fixed-top design
 
 import { Link } from "react-router-dom";
 import { getUser, logout } from "../utils/auth";
@@ -15,7 +17,7 @@ export default function Navbar() {
   // STATE: hold current user
   const [user, setUser] = useState(null);
 
-  // LOAD USER ON MOUNT
+  // load user when navbar mounts
   useEffect(() => {
     const currentUser = getUser();
     setUser(currentUser);
@@ -49,10 +51,12 @@ export default function Navbar() {
     logout(); // Clears localStorage + redirects
   };
 
+  // show become admin button only if user is not an admin
   const showBecomeAdmin =
     user && user.user_role !== "admin" && user.user_role === "user";
 
   return (
+    // navbar links and logo
     <nav
       className="navbar navbar-expand-lg bg-dark-custom fixed-top fs-5"
       data-bs-theme="dark"
@@ -93,8 +97,10 @@ export default function Navbar() {
             )}
           </ul>
 
+          {/* user info + button */}
           <div className="d-flex align-items-center gap-3">
             {user ? (
+              // when user is logged in
               <>
                 <span className="text-light small">
                   Hello,&nbsp;
@@ -106,6 +112,7 @@ export default function Navbar() {
                 </button>
               </>
             ) : (
+              // when user is not logged in
               <>
                 <span className="text-light small me-2">Hello, Guest</span>
                 <Link to="/login" className="btn btn-login">

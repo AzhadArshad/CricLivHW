@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast"; // import toast for pop-up notifications
 import API from "../services/api";
 
+// exporting admin version of the Ground card
+// props include card details and a callback to inform deletion
 export default function GroundCardAdmin({ ground, onDeleted }) {
+  // determine the correct image url
   const imageUrl = ground.image_filename
     ? `/grounds/${ground.image_filename}`
     : "/grounds/default.jpg";
 
+  // handle on deletion of ground
   const handleDelete = async () => {
     if (
       !window.confirm(
@@ -25,6 +29,7 @@ export default function GroundCardAdmin({ ground, onDeleted }) {
     }
   };
 
+  // main card container
   return (
     <div
       style={{
@@ -39,6 +44,7 @@ export default function GroundCardAdmin({ ground, onDeleted }) {
       }
       onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
     >
+      {/* ground image section */}
       <img
         src={imageUrl}
         alt={ground.ground_name}
@@ -51,6 +57,8 @@ export default function GroundCardAdmin({ ground, onDeleted }) {
           e.target.src = "/grounds/default.jpg";
         }}
       />
+
+      {/* card content */}
       <div style={{ padding: "1rem" }}>
         <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.25rem" }}>
           {ground.ground_name}
@@ -69,6 +77,7 @@ export default function GroundCardAdmin({ ground, onDeleted }) {
           AED {ground.price_per_hour}/hr
         </p>
 
+        {/* edit + delete buttons */}
         <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.75rem" }}>
           <Link
             to={`/admin/${ground.ground_id}`}

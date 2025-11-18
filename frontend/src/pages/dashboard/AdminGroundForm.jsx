@@ -1,9 +1,15 @@
 // src/pages/dashboard/AdminGrounds.jsx
 import { useState } from "react";
 import API from "../../services/api";
-import { toast } from "react-hot-toast"; // npm install react-hot-toast
+import { toast } from "react-hot-toast"; // for pop-ups
 import { useNavigate } from "react-router-dom";
 
+// PURPOSE: Allows admin to add new cricket grounds into the system
+// FEATURES:
+//  - Handles text inputs + image upload
+//  - Sends FormData to backend (/grounds)
+//  - Shows toast notifications
+//  - Navigates back to Admin Dashboard on success
 export default function AdminGroundForm() {
   const navigate = useNavigate();
 
@@ -16,10 +22,12 @@ export default function AdminGroundForm() {
   });
   const [loading, setLoading] = useState(false);
 
+  // handle text inputs
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // handles file input
   const handleFile = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -27,6 +35,7 @@ export default function AdminGroundForm() {
     }
   };
 
+  // upon submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -68,6 +77,7 @@ export default function AdminGroundForm() {
         Add New Ground
       </h2>
 
+      {/* ground form */}
       <form onSubmit={handleSubmit} style={{ display: "grid", gap: "1rem" }}>
         <input
           name="ground_name"
@@ -141,6 +151,7 @@ export default function AdminGroundForm() {
   );
 }
 
+// -------- STYLES --------
 const inputStyle = {
   padding: "0.75rem",
   borderRadius: "6px",

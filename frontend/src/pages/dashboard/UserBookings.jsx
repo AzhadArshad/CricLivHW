@@ -1,7 +1,13 @@
 import { toast } from "react-hot-toast";
 import API from "../../services/api";
 
+// PURPOSE: Display all bookings made by a user and allow them
+//          to cancel or confirm pending bookings.
+// PROPS:
+//   - bookings: Array of user booking objects
+//   - setBookings: State setter to update booking list after actions
 export default function UserBookings({ bookings, setBookings }) {
+  // handler for cancelling booking
   const handleCancel = async (id) => {
     try {
       await API.patch(`/bookings/${id}/cancel`);
@@ -17,6 +23,7 @@ export default function UserBookings({ bookings, setBookings }) {
     }
   };
 
+  // handler for confirming booking
   const handleConfirm = async (id) => {
     try {
       await API.patch(`/bookings/${id}/confirm`);
@@ -32,6 +39,7 @@ export default function UserBookings({ bookings, setBookings }) {
     }
   };
 
+  // if no bookings
   if (!bookings || bookings.length === 0) {
     return <p>No bookings found.</p>;
   }

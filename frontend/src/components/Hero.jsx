@@ -1,16 +1,18 @@
 // src/components/Hero.jsx
-// PURPOSE: Reusable, responsive hero section
+
+// PURPOSE: Reusable, responsive hero section for homepage
 // FEATURES:
-//   - Full-width background image
-//   - Dark overlay
-//   - Scalable text with clamp()
-//   - CTA button
-//   - Mobile-first RWD
+//   - Full-width background image banner
+//   - Dark overlay for readability
+//   - Responsive text using clamp() for scaling across screens
+//   - Clean CTA button linking to grounds page
+//   - Mobile-first responsive design (RWD)
 
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import "./Hero.css";
 
+// main hero wrapper
 export default function Hero() {
   return (
     <section
@@ -26,7 +28,7 @@ export default function Hero() {
         marginTop: "50px",
       }}
     >
-      {/* DARK OVERLAY */}
+      {/* dark overlay */}
       <div
         className="position-absolute top-0 start-0 w-100 h-100"
         style={{
@@ -34,7 +36,7 @@ export default function Hero() {
         }}
       />
 
-      {/* CONTENT */}
+      {/* content wrapper */}
       <Container
         className="position-relative z-1 px-3"
         style={{ maxWidth: "900px" }}
@@ -58,6 +60,7 @@ export default function Hero() {
           24/7
         </p>
 
+        {/* CTA button */}
         <Link
           to="/grounds"
           className="btn btn-pink btn-lg rounded-pill px-5 py-3 fw-semibold"

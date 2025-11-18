@@ -4,7 +4,14 @@ import API from "../../services/api";
 import GroundCardAdmin from "../../components/GroundCardAdmin";
 import { toast } from "react-hot-toast";
 
+// PURPOSE: Display all cricket grounds added by admin
+// FEATURES:
+//   - Fetches all grounds via API on mount
+//   - Shows loading state
+//   - Displays GroundCardAdmin components in a grid
+//   - Handles ground deletion from UI
 function AdminGrounds() {
+  // list of all grounds
   const [grounds, setGrounds] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -38,6 +45,7 @@ function AdminGrounds() {
         MY Grounds
       </h1>
 
+      {/* empty state - if no grounds exist */}
       {grounds.length === 0 ? (
         <p style={{ textAlign: "center", color: "#666" }}>
           No grounds available yet.

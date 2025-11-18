@@ -1,3 +1,13 @@
+// PURPOSE: Admin overview panel showing bookings, ground stats, and management tools
+// FEATURES:
+//   - Fetches admin bookings + grounds
+//   - Displays quick statistics (pending, confirmed, cancelled, etc.)
+//   - Bookings table
+//   - Add ground button with navigation
+//   - Shows AdminGrounds below table
+//   - Loading state, error handling with toast
+//   - Responsive layout
+
 import { useEffect, useState } from "react";
 import API from "../../services/api";
 import { toast } from "react-hot-toast";
@@ -5,11 +15,13 @@ import { useNavigate } from "react-router-dom";
 import AdminGrounds from "./AdminGrounds";
 
 export default function AdminDashboard() {
+  // State: store bookings and grounds fetched from backend
   const [bookings, setBookings] = useState([]);
   const [grounds, setGrounds] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // fetch bookings and grounds and their data
   const fetchData = async () => {
     try {
       const [bookRes, groundRes] = await Promise.all([
@@ -30,6 +42,7 @@ export default function AdminDashboard() {
     fetchData();
   }, []);
 
+  // loading screen
   if (loading) {
     return (
       <div style={{ textAlign: "center", padding: "3rem" }}>
@@ -45,13 +58,14 @@ export default function AdminDashboard() {
   const cancelled = bookings.filter((b) => b.status === "cancelled").length;
   const totalGrounds = grounds.length;
 
-  // Format date & time
+  // Format date & time for table
   const formatDate = (isoStr) => {
     const d = new Date(isoStr);
     return d.toLocaleDateString(); // e.g., 11/12/2025
   };
 
   return (
+    // page title
     <div
       style={{
         padding: "2rem",
@@ -106,6 +120,7 @@ export default function AdminDashboard() {
           marginBottom: "1rem",
         }}
       >
+        {/* add new ground button */}
         <h2 style={{ fontSize: "1.5rem" }}>Bookings</h2>
         <button
           onClick={() => navigate("/admin/groundsForm")}
@@ -147,6 +162,8 @@ export default function AdminDashboard() {
           ))}
         </tbody>
       </table>
+
+      {/* grounds list below table */}
       <AdminGrounds />
     </div>
   );
