@@ -3,6 +3,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
+// This will save the photo in our froend-public-grounds folder and thats how we will serve images 
 const getUpload = (uploadDir) => {
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {

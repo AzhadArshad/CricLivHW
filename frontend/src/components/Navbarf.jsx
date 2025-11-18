@@ -86,8 +86,8 @@ export default function Navbar() {
             </li>
             {showBecomeAdmin && (
               <li className="nav-item">
-                <Link to="/contact-us" className="nav-link text-warning">
-                  Contact Us
+                <Link to="/become-admin" className="nav-link text-warning">
+                  Become Admin
                 </Link>
               </li>
             )}

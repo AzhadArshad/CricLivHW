@@ -15,7 +15,7 @@ import Register from "./pages/Register";
 import GroundList from "./pages/GroundList";
 import BookingPage from "./pages/BookingPage";
 import AdminEdit from "./pages/AdminEdit";
-import ContactUs from "./pages/ContactUs";
+import BecomeAdmin from "./pages/BecomeAdmin";
 import AboutUs from "./pages/AboutUs";
 
 // Dashboard pages
@@ -137,7 +137,7 @@ export default function App() {
             }
           />
 
-          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/become-admin" element={<BecomeAdmin />} />
 
           <Route path="/about-us" element={<AboutUs />} />
 
